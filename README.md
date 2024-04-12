@@ -1,3 +1,3 @@
-# pianfan.github.io
+# ifzzh.github.io
 
 My Personal Blog via GitHub
