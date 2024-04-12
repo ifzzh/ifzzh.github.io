@@ -24,14 +24,14 @@ author: ifzzh
 
 
 * 官方地址（需要魔法，但挺可靠的）：
-  * [官方地址1](annas-archive.se)
-  * [官方地址2](annas-archive.gs)
-  * [官方地址3](annas-archive.org)
+  * [官方地址1](https://annas-archive.se)
+  * [官方地址2](https://annas-archive.gs)
+  * [官方地址3](https://annas-archive.org)
 
 * 镜像地址：
-  * [镜像地址1](annas-archive.gs.976156.xyz)
-  * [镜像地址2](annas-archive.se.412965.xyz)
-  * [镜像地址3](guge.tk/-----https://annas-archive.gs/)
+  * [镜像地址1](https://annas-archive.gs.976156.xyz)
+  * [镜像地址2](https://annas-archive.se.412965.xyz)
+  * [镜像地址3](https://guge.tk/-----https://annas-archive.gs/)
 
 
 
@@ -39,7 +39,7 @@ author: ifzzh
 
 > 无名图书网站收录了各种类型的电子书，包括文学、社会文化、历史、经济、理工科等，支持PDF、EPUB、MOBI等格式，无需注册登录。
 
-[点击跳转](www.book123.info)
+[点击跳转](https://www.book123.info)
 
 
 ## Zlib
@@ -51,7 +51,7 @@ author: ifzzh
   * [官方地址2](https://zlibrary-cn.se/)
 
 * 镜像地址：
-  * [镜像地址](Zlib.shop)
+  * [镜像地址](https://Zlib.shop)
   * [镜像地址2](https://www.tboxn.com/sites/320.html#google_vignette)
 
 
