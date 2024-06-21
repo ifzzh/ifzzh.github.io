@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选课流程图</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step {
+            position: relative;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 150px;
+            text-align: center;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .description {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 150%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            padding: 10px;
+            width: 450px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .step:hover .description {
+            display: block;
+        }
+
+        .step:hover .curve-box {
+            display: block;
+        }
+
+        .curve-box {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            padding: 10px;
+            width: 50px;
+        }
+
+        .arrow {
+            margin: 20px auto;
+        }
+
+        .substep-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 10px;
+            width: 400px;
+        }
+
+        .substep {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .substep .step {
+            width: 20px;
+            padding: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #000;
+            writing-mode: vertical-lr;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flowchart">
+        <div class="step" id="step1">
+            预选
+            <div class="curve-box">
+                <svg class="curve-arrow" width="100" height="50" viewBox="0 0 100 50">
+                    <path d="M0,30 Q40,30 50,20 Q50,20 50,15 Q50,15 40,10 Q40,10 35,20 Q35,20 40,27 Q40,27 80,30" stroke="#007BFF"
+                        stroke-width="2" stroke-dasharray="5,5" fill="none" />
+                </svg>
+            </div>
+            <div class="description">
+                学生可以选择自己比较想要选的课程，放入预选课表中。放入课表的课程不能互相冲突；同学们可以对课表中的课程分别设置意愿点，表示自己想要选中这门课程的意愿的强烈程度；每个学生的意愿点总和是一定的（比如每位同学有100个意愿点），因此同学们需要根据自己的想法合理分配。
+            </div>
+        </div>
+        <svg class="arrow" width="50" height="50" viewBox="0 0 50 50">
+            <line x1="25" y1="0" x2="25" y2="40" stroke="#007BFF" stroke-width="2" />
+            <polygon points="25,50 15,35 35,35" fill="#007BFF" />
+        </svg>
+        <div class="step" id="step2">
+            抽签
+            <div class="curve-box">
+                <svg class="curve-arrow" width="100" height="50" viewBox="0 0 100 50">
+                    <path d="M0,30 Q40,30 50,20 Q50,20 50,15 Q50,15 40,10 Q40,10 35,20 Q35,20 40,27 Q40,27 80,30" stroke="#007BFF"
+                        stroke-width="2" stroke-dasharray="5,5" fill="none" />
+                </svg>
+            </div>
+            <div class="description">
+                教务根据预选环节得到的预选课表进行随机抽签。在抽签过程中，可以结合学生设置意愿点，改变该学生选中相应课程的概率。使得结果尽可能符合学生的期待。
+            </div>
+        </div>
+        <svg class="arrow" width="50" height="50" viewBox="0 0 50 50">
+            <line x1="25" y1="0" x2="25" y2="40" stroke="#007BFF" stroke-width="2" />
+            <polygon points="25,50 15,35 35,35" fill="#007BFF" />
+        </svg>
+        <div class="step" id="step3">
+            补退选
+
+            <div class="curve-box">
+                <svg class="curve-arrow" width="100" height="50" viewBox="0 0 100 50">
+                    <path d="M0,30 Q40,30 50,20 Q50,20 50,15 Q50,15 40,10 Q40,10 35,20 Q35,20 40,27 Q40,27 80,30" stroke="#007BFF"
+                        stroke-width="2" stroke-dasharray="5,5" fill="none" />
+                </svg>
+            </div>
+            <div class="description">
+                学生们需要自己去访问选课系统，补选还有多余名额的课程，同时，可以选择退选之前选中的某门课程。
+            </div>
+        </div>
+        <svg class="arrow" width="50" height="50" viewBox="0 0 50 50">
+            <line x1="25" y1="0" x2="25" y2="40" stroke="#007BFF" stroke-width="2" />
+            <polygon points="25,50 15,35 35,35" fill="#007BFF" />
+        </svg>
+        <div class="substep-container">
+            <div class="substep">
+                <div class="step">核心课</div>
+                <div class="step">专业课</div>
+                <div class="step">公必课</div>
+                <div class="step">公选课</div>
+                <div class="step">跨院系专业课</div>
+            </div>
+        </div>
+        <svg class="arrow" width="50" height="50" viewBox="0 0 50 50">
+            <line x1="25" y1="0" x2="25" y2="40" stroke="#007BFF" stroke-width="2" />
+            <polygon points="25,50 15,35 35,35" fill="#007BFF" />
+        </svg>
+        <div class="step" id="step4">
+            补选
+
+            <div class="curve-box">
+                <svg class="curve-arrow" width="100" height="50" viewBox="0 0 100 50">
+                    <path d="M0,30 Q40,30 50,20 Q50,20 50,15 Q50,15 40,10 Q40,10 35,20 Q35,20 40,27 Q40,27 80,30" stroke="#007BFF"
+                        stroke-width="2" stroke-dasharray="5,5" fill="none" />
+                </svg>
+            </div>
+            <div class="description">
+                这一环节只允许补选，不允许退选。这一环节的主要受众是在前面三个环节中依旧没有完成选课任务的同学，他们仍然需要适当地补选课程，完成自己的课表。
+            </div>
+        </div>
+        <!-- 添加曲线虚线连接流程和说明文字 -->
+    </div>
+</body>
+
+</html>
