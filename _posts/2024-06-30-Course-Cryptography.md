@@ -10,6 +10,8 @@ author: ifzzh
 > 密码技术应用实例
 
 
+<link rel="stylesheet" type="text/css" href="../css/auto-title-number.css" />
+
 <!-- more -->
 
 ### 目录
