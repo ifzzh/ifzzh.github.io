@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "网络空间安全的密码学导引 Class 5"
-date:   2024-6-26
+date:   2024-6-30
 tags: [Course-Cryptography]
 comments: true
 author: ifzzh
@@ -31,7 +31,9 @@ author: ifzzh
 
 ### PGP
 1990，Zimmermann
+
 Pretty Good Privacy
+
 成为了一种标准：OpenPGP
 
 PGP功能
