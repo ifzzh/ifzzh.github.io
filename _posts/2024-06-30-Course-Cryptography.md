@@ -9,6 +9,9 @@ author: ifzzh
 
 > 密码技术应用实例
 
+
+<!-- more -->
+
 ### 目录
 
 - [Infomation](#infomation)
@@ -17,6 +20,7 @@ author: ifzzh
   - [](#)
   - [](#-1)
   - [](#-2)
+
 
 ## Infomation
 
