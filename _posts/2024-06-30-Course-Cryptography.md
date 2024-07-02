@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "网络空间安全的密码学导引课程报告"
-date:   2024-7-1
+title: "网络空间安全的密码学导引 Class 5"
+date:   2024-6-30
 tags: [Course-Cryptography]
 comments: true
 author: ifzzh
