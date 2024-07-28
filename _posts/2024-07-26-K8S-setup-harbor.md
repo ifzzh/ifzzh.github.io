@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Harbor仓库构建和K8S集群部署(1.28,基于containerd)"
+title: "Harbor仓库构建和K8S集群部署(1.23, 基于docker)"
 date:   2024-7-26
 tags: [K8S]
 comments: true
@@ -37,6 +37,8 @@ author: ifzzh
 |node01|223.193.36.179|worker|8C|32G|CentOS 7|
 |node02|223.193.36.182|worker|8C|32G|CentOS 7|
 |harbor|223.193.36.117|repository|8C|32G|CentOS 7|
+
+
 <!-- 
 ## 配置主机
 

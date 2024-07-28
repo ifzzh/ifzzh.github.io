@@ -2,7 +2,7 @@
 layout: post
 title: "Docker的安装与卸载"
 date:   2024-7-28
-tags: [K8S]
+tags: [docker]
 comments: true
 author: ifzzh
 ---
