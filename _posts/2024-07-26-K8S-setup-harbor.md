@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Harbor仓库构建K8S集群部署"
+title: "Harbor仓库构建和K8S集群部署(1.28,基于containerd)"
 date:   2024-7-26
 tags: [K8S]
 comments: true
@@ -11,24 +11,195 @@ author: ifzzh
 
 <!-- more -->
 
+
+<link rel="stylesheet" type="text/css" href="../css/auto-title-number.css" />
+
 ## 目录
 
 - [目录](#目录)
-- [harbor自建节点](#harbor自建节点)
 - [主机硬件配置说明](#主机硬件配置说明)
-- [](#)
-
-## harbor自建节点
+- [harbor节点部署docker和harbor仓库](#harbor节点部署docker和harbor仓库)
+  - [docker安装](#docker安装)
+    - [卸载旧版本](#卸载旧版本)
+    - [设置存储库](#设置存储库)
+    - [安装最新版本的Docker引擎和容器](#安装最新版本的docker引擎和容器)
+    - [安装指定版本](#安装指定版本)
+    - [启动docker](#启动docker)
+    - [卸载docker（如需要）](#卸载docker如需要)
 
 
 ## 主机硬件配置说明
 
-|主机名|IP|角色|CPU|内存|
-|:-: | :-:|:-:|:-:|:-:|
-|master01|223.193.36.152|master,etcd|8C|32G|
-|master02|223.193.36.155|master,etcd|8C|32G|
-|node01|223.193.36.179|worker|8C|32G|
-|node02|223.193.36.182|worker|8C|32G|
-|harbor|223.193.36.117|repository|8C|32G|
+|主机名|IP|角色|CPU|内存|系统|
+|:-: | :-:|:-:|:-:|:-:|:-:|
+|master01|223.193.36.152|master,etcd|8C|32G|CentOS 7|
+|master02|223.193.36.155|master,etcd|8C|32G|CentOS 7|
+|node01|223.193.36.179|worker|8C|32G|CentOS 7|
+|node02|223.193.36.182|worker|8C|32G|CentOS 7|
+|harbor|223.193.36.117|repository|8C|32G|CentOS 7|
+<!-- 
+## 配置主机
 
-## 
+### 主机名
+```bash
+# master01
+hostnamectl set-hostname master01
+# 以此类推
+```
+
+### 配置为静态IP地址
+
+### 主机名与IP地址解析
+在`/etc/hosts`中加入
+```bash
+223.193.36.152 master01
+223.193.36.155 master02
+223.193.36.179 node01
+223.193.36.182 node02
+```
+
+### 关闭防火墙
+```bash
+# 检查方法
+firewall-cmd --state
+
+# 关闭方法
+systemctl stop firewalld
+
+# 加上开机禁用
+systemctl disable --now firewalld
+```
+
+### 关闭SELinux
+
+```bash
+# 检查
+sestatus
+
+# 关闭方法：打开config文件，修改为disabled
+sudo nano /etc/selinux/config
+
+# 修改SELinux配置后需要重启操作系统
+reboot
+```
+
+### 时间同步配置
+```bash
+# 编写同步规则
+crontab -e
+0 */1 * * * ntptable time1.aliyun.com
+
+# 现在先同步一次
+ntpdate time1.aliyun.com
+```
+### 升级操作系统内核
+```bash
+# 导入elrepo gpg key
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+
+# 安装elrepo YUM源仓库
+sudo yum -y install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+
+# 安装kernel-ml版本，ml为长期稳定版本，lt为长期维护版本
+yum --enablerepo="elrepo-kernel" -y install kernel-lt.x86_64
+
+# 设置grub2默认引导为0
+grub2-set-default 0
+
+# 重新生成grub2引导文件
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+# 更新后，需要重启，使用升级的内核生效
+reboot
+``` -->
+
+## harbor节点部署docker和harbor仓库
+
+[安装包地址](https://pan.baidu.com/s/1PiIYXPyNkVuxBnuxBpvKHA?pwd=s04r)
+
+### docker安装
+
+#### 卸载旧版本
+
+```bash
+# 1. 卸载之前安装的组件
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+```
+
+#### 设置存储库
+```bash
+# 1.安装yum-utils
+sudo yum install -y yum-utils
+
+# 2.设置稳定的存储库
+sudo yum-config-manager \
+    --add-repo \
+    http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# 下面是官网的, 上面使用阿里云的 国内比较快
+#    https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+#### 安装最新版本的Docker引擎和容器
+
+```bash
+# 1. 直接安装最新docker版本
+sudo yum -y install docker-ce docker-ce-cli containerd.io
+
+# 2. 安装完成后查看版本
+docker -v
+```
+
+#### 安装指定版本
+```bash
+# 如果想安装不同版本
+# 1.列出可用版本
+yum list docker-ce --showduplicates | sort -r
+
+# 2.安装指定版本
+sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
+如:
+sudo yum install docker-ce-18.09.1 docker-ce-cli-18.09.1 containerd.io
+
+```
+
+#### 启动docker
+```bash
+# 启动docker
+systemctl start docker
+
+# 停止docker
+systemctl stop docker
+
+# 重启
+systemctl restart docker
+
+# 查看状态
+systemctl status docker
+
+# 设置开机自启动
+systemctl enable docker
+
+# 查看信息
+docker info
+
+# 查看帮助文档
+docker --help
+```
+#### 卸载docker（如需要）
+```bash
+# 1.卸载 Docker 引擎、CLI 和容器包
+sudo yum remove docker-ce docker-ce-cli containerd.io
+
+# 2.主机上的图像、容器、卷或自定义配置文件不会自动删除。要删除所有图像、容器和卷
+sudo rm -rf /var/lib/docker
+
+# 3.必须手动删除任何编辑的配置文件。
+```
