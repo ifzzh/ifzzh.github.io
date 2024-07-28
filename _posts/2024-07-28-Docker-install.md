@@ -25,7 +25,7 @@ author: ifzzh
   - [安装最新版本的Docker引擎和容器](#安装最新版本的docker引擎和容器)
   - [安装指定版本](#安装指定版本)
   - [启动docker](#启动docker)
-  - [卸载docker（如需要）](#卸载docker如需要)
+- [卸载docker（如需要）](#卸载docker如需要)
 
 
 
@@ -106,7 +106,7 @@ docker info
 # 查看帮助文档
 docker --help
 ```
-### 卸载docker（如需要）
+## 卸载docker（如需要）
 ```bash
 # 1.卸载 Docker 引擎、CLI 和容器包
 sudo yum remove docker-ce docker-ce-cli containerd.io
