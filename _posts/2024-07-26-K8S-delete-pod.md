@@ -2,7 +2,7 @@
 layout: post
 title: "K8S集群删除Pod方法"
 date:   2024-7-26
-tags: [K8S, delete-pod]
+tags: [k8s, delete-pod]
 comments: true
 author: ifzzh
 ---
