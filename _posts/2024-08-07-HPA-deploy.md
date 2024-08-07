@@ -19,6 +19,7 @@ author: ifzzh
 - [目录](#目录)
 - [运行一个php-apache服务器并暴露服务](#运行一个php-apache服务器并暴露服务)
 - [创建 HorizontalPodAutoscaler](#创建-horizontalpodautoscaler)
+- [增加负载](#增加负载)
 
 ##  运行一个php-apache服务器并暴露服务
 
@@ -94,7 +95,7 @@ kubectl get hpa
 请注意当前的 CPU 利用率是 0%，这是由于我们尚未发送任何请求到服务器 （TARGET 列显示了相应 Deployment 所控制的所有 Pod 的平均 CPU 利用率）。
 
 
-# 增加负载
+## 增加负载
 
 接下来，看看自动扩缩器如何对增加的负载做出反应。 为此，你将启动一个不同的 Pod 作为客户端。 客户端向 php-apache 服务发送查询。
 
