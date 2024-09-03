@@ -91,7 +91,21 @@ author: ifzzh
 
 ## 整合上报名单
 
-在截止报名之后，将手中的名单文件整合到一个大的文件里，
+一般需要在`周四中午`前将下述两个文件发送给老师（主要是参保名单），需要留足时间购买保险。
+
+在截止报名之后，将手中的名单文件整合到一个大的Excel文件中，每个sheet保存一个支部的信息，单独报名的同学整合到同一个sheet中。
+
+<!-- ![报名汇总](../images/2024-09-01-JianShouXingDong/报名汇总.png) -->
+
+<div style="display: flex; justify-content: center;">
+    <img src="../images/2024-09-01-JianShouXingDong/报名汇总.png" alt="报名整合">
+</div>
+
+将姓名和身份证两列单独提取出来，保存为参保名单。
+
+<div style="display: flex; justify-content: center;">
+    <img src="../images/2024-09-01-JianShouXingDong/保单.png" alt="参保名单">
+</div>
 
 ## 强调注意事项
 
