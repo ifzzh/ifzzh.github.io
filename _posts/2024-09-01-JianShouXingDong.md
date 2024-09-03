@@ -64,6 +64,10 @@ author: ifzzh
 
 ![自主报名](../images/2024-09-01-JianShouXingDong/自主报名.png)
 
+<div style="text-align: center;">
+<img src="../images/2024-09-01-JianShouXingDong/自主报名.png" alt="自主报名" width="500">
+</div>
+
 由于没有支部牵头，所以这一部分同学需要由负责人单独统计。我采取的方式是建群后在公告中放一个在线问卷的链接，告知截止日期；截止报名之后将问卷结果直接导出到表格中。
 
 ![自主报名问卷](../images/2024-09-01-JianShouXingDong/问卷.jpg)
