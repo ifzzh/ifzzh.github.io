@@ -33,6 +33,12 @@ author: ifzzh
 
 ##  整体流程
 
+
+<div style="display: flex; justify-content: center;">
+    <img src="../images/2024-09-01-JianShouXingDong/流程图.png" alt="坚守行动流程图" width="500">
+</div>
+
+
 <!-- 导入鱼骨图 -->
 <!-- ![坚守行动鱼骨图](../images/2024-09-01-JianShouXingDong/坚守行动鱼骨图.png) -->
 
@@ -40,10 +46,6 @@ author: ifzzh
     <img src="../images/2024-09-01-JianShouXingDong/坚守行动鱼骨图.png" alt="坚守行动鱼骨图">
 </div>
 
-
-<div style="display: flex; justify-content: center;">
-    <img src="../images/2024-09-01-JianShouXingDong/流程图.png" alt="坚守行动流程图" width="500">
-</div>
 
 
 
