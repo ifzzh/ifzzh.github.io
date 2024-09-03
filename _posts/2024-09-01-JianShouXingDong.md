@@ -64,7 +64,7 @@ author: ifzzh
 
 ![自主报名](../images/2024-09-01-JianShouXingDong/自主报名.png)
 
-<div style="text-align: center;">
+<div style="display: flex; justify-content: center;">
 <img src="../images/2024-09-01-JianShouXingDong/自主报名.png" alt="自主报名" width="500">
 </div>
 
